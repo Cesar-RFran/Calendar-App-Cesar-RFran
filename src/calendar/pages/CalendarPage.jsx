@@ -9,26 +9,13 @@ import Navbar from '../components/Navbar'
 import { useState } from 'react'
 import CalendarModal from '../components/CalendarModal'
 import { useUiStore } from '../../hooks/useUiStore'
-
-
-
-
-const events = [{
-  title: 'Cumpleaños',
-  notes: 'Hay que comprar el pastel',
-  start: new Date(),
-  end: addHours(new Date(), 2),
-  bgColor: '#fafafa',
-  user: {
-    _id: '123',
-    name: 'Cesar'
-  }
-}]
+import useCalendarStore from '../../hooks/useCalendarStore'
 
 
 const CalendarPage = () => {
 
   const {openDateModal} = useUiStore()
+  const {events} = useCalendarStore()
 
   const [lastView, setlastView] = useState(localStorage.getItem('lastView') || 'week' )
 
